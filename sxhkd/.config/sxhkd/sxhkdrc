@@ -1,0 +1,63 @@
+## THIS IS NOT A SHELL SCRIPT
+
+## BSPWM
+# quit bspwm
+F10
+	prompt "Ziur zaude saioa itxi nahi duzula?" "amaitu"
+
+# restart bspwm
+super + shift + r
+	bspc wm -r
+  
+# kill window
+super + {_,shift + } q
+	bspc node -{c,k}
+
+# change focus
+super + {h,j,k,l}
+	bspc node -f {west,south,north,east}
+
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+
+# send window to workspace
+super + {0-9}
+	bspc desktop -f {0-9}
+
+# send window to workspace
+super + shift + {0-9}
+	bspc node -d {0-9}
+  
+# toggle floating window
+super + space
+	bspc node focused.tiled -t floating || bspc node focused.floating -t tiled
+  
+# toggle fullscreen
+super + f
+	bspc node -t ~fullscreen
+
+# volume
+# XF86Launch1
+# XF86AudioMute XF86AudioLowerVolume XF86AudioRaiseVolume
+{XF86AudioMute,XF86AudioLowerVolume,XF86AudioRaiseVolume}
+	amixer sset Master {toggle,10%-,10%+} >/dev/null
+  
+## PROGRAMS
+# launch a terminal
+super + Return
+	$TERMINAL
+
+# launch dmenu
+super + d
+	dmenu_run
+
+# launch emacs
+super + x
+	emacs
+
+# shutdown
+#super + shift + o
+#XF86WakeUp + F11
+F11
+	prompt "Ziur zaude itzali nahi duzula?" "/usr/sbin/shutdown -h now"
+  

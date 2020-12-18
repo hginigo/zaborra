@@ -1,0 +1,157 @@
+Highlighting groups for various occasions
+-----------------------------------------
+SpecialKey	SpecialKey
+TermCursor	TermCursor
+NonText	NonText EndOfBuffer Whitespace
+Directory	Directory
+ErrorMsg	ErrorMsg NvimInvalidSpacing
+IncSearch	IncSearch
+Search	Search QuickFixLine Substitute
+MoreMsg	MoreMsg
+ModeMsg	ModeMsg
+LineNr	LineNr
+CursorLineNr	CursorLineNr
+Question	Question
+StatusLine	StatusLine MsgSeparator
+StatusLineNC	StatusLineNC
+VertSplit	VertSplit
+Title	Title
+Visual	Visual
+WarningMsg	WarningMsg vimWarn vimBufnrWarn
+WildMenu	WildMenu
+Folded	Folded vimFold
+FoldColumn	FoldColumn
+DiffAdd	DiffAdd
+DiffChange	DiffChange
+DiffDelete	DiffDelete
+DiffText	DiffText
+SignColumn	SignColumn
+Conceal	Conceal
+SpellBad	SpellBad
+SpellCap	SpellCap
+SpellRare	SpellRare
+SpellLocal	SpellLocal
+Pmenu	Pmenu NormalFloat
+PmenuSel	PmenuSel
+PmenuSbar	PmenuSbar
+PmenuThumb	PmenuThumb
+TabLine	TabLine
+TabLineSel	TabLineSel
+TabLineFill	TabLineFill
+CursorColumn	CursorColumn
+CursorLine	CursorLine
+ColorColumn	ColorColumn
+
+Syntax highlighting groups
+--------------------------
+RedrawDebugNormal	RedrawDebugNormal
+RedrawDebugClear	RedrawDebugClear
+RedrawDebugComposed	RedrawDebugComposed
+RedrawDebugRecompose	RedrawDebugRecompose
+Cursor	Cursor
+lCursor	lCursor
+MatchParen	MatchParen
+NvimInternalError	NvimInternalError NvimFigureBrace
+	NvimSingleQuotedUnknownEscape
+	NvimInvalidSingleQuotedUnknownEscape
+Identifier	Identifier NvimIdentifier NvimIdentifierScope
+	NvimIdentifierScopeDelimiter NvimIdentifierName
+	NvimIdentifierKey NvimOptionName NvimOptionScope
+	NvimOptionScopeDelimiter NvimEnvironmentName Function vimVar
+	vimFBVar vimFuncName vimSpecFile vimFuncVar vimSpecFileMod
+	vimKeyCode
+Type	Type NvimNumberPrefix NvimOptionSigil NvimEnvironmentSigil
+	StorageClass Structure Typedef vimGroup vimHLGroup
+	nvimHLGroup vimPattern vimAutoEvent nvimAutoEvent
+	vimEchoHLNone vimSynCase vimGroupName vimSynReg vimSyncC
+	vimSyncGroupName vimSyncKey vimSyncGroup vimSyncNone
+	vimHiGroup vimHiTerm vimHiCTerm vimHiStartStop vimHiCtermFgBg
+	vimHiGui vimHiGuiFont vimHiGuiFgBg vimSpecial vimUserAttrb
+	vimUserAttrbCmplt vimSynType vimFTOption
+Error	Error NvimInvalid NvimInvalidAssignment
+	NvimInvalidPlainAssignment NvimInvalidAugmentedAssignment
+	NvimInvalidAssignmentWithAddition
+	NvimInvalidAssignmentWithSubtraction
+	NvimInvalidAssignmentWithConcatenation NvimInvalidOperator
+	NvimInvalidUnaryOperator NvimInvalidUnaryPlus
+	NvimInvalidUnaryMinus NvimInvalidNot
+	NvimInvalidBinaryOperator NvimInvalidComparison
+	NvimInvalidComparisonModifier NvimInvalidBinaryPlus
+	NvimInvalidBinaryMinus NvimInvalidConcat
+	NvimInvalidConcatOrSubscript NvimInvalidOr NvimInvalidAnd
+	NvimInvalidMultiplication NvimInvalidDivision NvimInvalidMod
+	NvimInvalidTernary NvimInvalidTernaryColon
+	NvimInvalidDelimiter NvimInvalidParenthesis NvimInvalidLambda
+	NvimInvalidNestingParenthesis NvimInvalidCallingParenthesis
+	NvimInvalidSubscript NvimInvalidSubscriptBracket
+	NvimInvalidSubscriptColon NvimInvalidCurly
+	NvimInvalidContainer NvimInvalidDict NvimInvalidList
+	NvimInvalidValue NvimInvalidIdentifier
+	NvimInvalidIdentifierScope
+	NvimInvalidIdentifierScopeDelimiter NvimInvalidIdentifierName
+	NvimInvalidIdentifierKey NvimInvalidColon NvimInvalidComma
+	NvimInvalidArrow NvimInvalidRegister NvimInvalidNumber
+	NvimInvalidFloat NvimInvalidNumberPrefix
+	NvimInvalidOptionSigil NvimInvalidOptionName
+	NvimInvalidOptionScope NvimInvalidOptionScopeDelimiter
+	NvimInvalidEnvironmentSigil NvimInvalidEnvironmentName
+	NvimInvalidString NvimInvalidStringQuote
+	NvimInvalidSingleQuote NvimInvalidDoubleQuote
+	NvimInvalidDoubleQuotedUnknownEscape NvimInvalidFigureBrace
+	NvimDoubleQuotedUnknownEscape vimOperError vimUserAttrbError
+	vimUserCmdError vimElseIfErr vimSynError vimSyncError
+	vimError vimKeyCodeError vimErrSetting vimBehaveError
+	vimFTError vimFunctionError vimAugroupError vimFunc
+	vimPatSepErr vimSubstFlagErr vimCollClassErr vimMapModErr
+	vimSynCaseError vimHiCtermError vimHiAttribList
+	vimHiKeyError
+Comment	Comment vimComment vimLineComment vimMtchComment
+	vimScriptDelim
+Constant	Constant Number String Character Boolean Float vimNumber
+	vimMark vimString NvimString NvimStringBody NvimStringQuote
+	NvimSingleQuote NvimSingleQuotedBody NvimDoubleQuote
+	NvimDoubleQuotedBody NvimInvalidStringBody
+	NvimInvalidSingleQuotedBody NvimInvalidDoubleQuotedBody
+	vimSearch vimSetString vimCommentString vimPatSepZone
+	vimNotPatSep vimStringEnd vimStringCont vimSubstTwoBS
+	vimMarkNumber vimPlainMark vimAddress vimSynRegPat
+	vimSynPatRange vimInsert vimSynNotPatRange vimHiGuiRgb
+	vimHiNmbr NvimNumber NvimFloat
+Special	Special Delimiter NvimColon NvimComma NvimArrow SpecialChar
+	NvimStringSpecial NvimSingleQuotedQuote
+	NvimDoubleQuotedEscape NvimInvalidStringSpecial
+	NvimInvalidSingleQuotedQuote NvimInvalidDoubleQuotedEscape
+	Tag SpecialComment Debug vimRegister vimCmplxRepeat
+	vimNotation vimCtrlChar vimContinue vimParenSep vimSep
+	vimFuncSID vimUserAttrbCmpltFunc vimPatSep vimPatSepZ
+	vimPatSepR vimSubstSubstr NvimRegister vimSubstDelim
+	vimSubstFlags vimPlainRegister vimMapModKey vimBracket
+	vimMapMod vimMenuMod vimGroupSpecial vimIskSep
+	NvimParenthesis NvimLambda NvimNestingParenthesis
+	NvimCallingParenthesis NvimSubscript NvimSubscriptBracket
+	NvimSubscriptColon NvimCurly NvimContainer NvimDict NvimList
+	vimSynOption vimSynContains vimSynKeyContainedin
+	vimSynNextgroup vimGroupAdd vimGroupRem vimSynKeyOpt
+	vimSynMtchOpt vimSynRegOpt vimSynMtchGrp
+Statement	Statement Operator NvimOperator NvimUnaryOperator
+	NvimUnaryPlus NvimUnaryMinus NvimNot NvimBinaryOperator
+	NvimComparison NvimComparisonModifier NvimBinaryPlus
+	NvimBinaryMinus NvimConcat NvimConcatOrSubscript NvimOr
+	NvimAnd NvimMultiplication NvimDivision NvimMod NvimTernary
+	NvimTernaryColon Conditional Repeat Label Keyword Exception
+	vimCommand vimSubst vimAutoCmd vimLet vimMap vimSyntax
+	vimBehave vimBehaveModel vimFTCmd vimNotFunc vimOper
+	NvimAssignment NvimPlainAssignment NvimAugmentedAssignment
+	NvimAssignmentWithAddition NvimAssignmentWithSubtraction
+	NvimAssignmentWithConcatenation vimAugroupKey vimFuncKey
+	vimAbb vimEchoHL vimHighlight vimNorm vimUnmap vimUserCommand
+	vimSubst1 vimSetSep vimMapBang nvimMap nvimUnmap vimHiClear
+	vimSearchDelim vimAuHighlight vimAutoSet vimCondHL vimElseif
+	vimKeyword vimStatement
+PreProc	PreProc Include Define Macro PreCondit vimOption vimEnvvar
+	vimUserAttrbKey vimSetMod vimMenuName vimMenuNameMore
+	vimHiAttrib vimFgBgAttrib vimCommentTitle vimAutoCmdOpt
+	vimHLMod
+Underlined	Underlined
+Ignore	Ignore
+Todo	Todo vimTodo

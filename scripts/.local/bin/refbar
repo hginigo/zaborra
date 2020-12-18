@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+
+#PARENT=$(pgrep modules)
+echo "aaa"
+#[ ! -z "$PARENT" ] && kill $(pgrep -P ${PARENT})

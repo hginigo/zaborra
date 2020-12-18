@@ -1,0 +1,61 @@
+#!/bin/sh
+# Just an obscure shell script..
+# Nothing to see here..
+
+# Makina bakoitzarentzako alda daiteke
+#useragent="Mozilla/5.0 (X11; Linux x86_64; rv:77.0) Gecko/20100101 Firefox/77.0"
+
+url=$1
+
+echo "Starting..."
+# Gerorako beharko ditugun datuak gorde
+rawdata=$(curl -s $url) && echo "Curl done." \
+	|| (printf "There has been an error with curl" >&2 ; exit 1)
+header=$(grep -m 1 -ie "^\ *<title>.*</title>" <<< "$rawdata" |\
+	sed "s/^\ *<title>//;s/<\/title>.*$//;s/\&quot;/\"/g") \
+	|| (printf "Wrong URL" >&2 ; exit 1)
+cover=$(grep -m 1 -ie "itemprop=\"image\"" <<< "$rawdata" | sed "s/^.*src=\"//;s/\".*$//")
+
+# Pasatako URL-a lortu eta "trackinfo:" lerroa gorde
+data=$(grep -e "^\ *trackinfo:" <<< "$rawdata" |\
+
+# Gordetako lerroan "^\ trackinfo:" eta ",\ $" zatiak kendu
+sed "s/^\ *trackinfo:\ *//;s/,\ *$//"|\
+
+# jq JSON formatua ondo idatzi  
+jq)
+
+artist="${header##* | }"
+album="${header%% | *}"
+
+links="$(grep "\"mp3-128\": " <<< $data | sed "s/^\ *\"mp3-128\": *\"//;s/\"\ *,\?\ *$//")"
+titles="$(grep "\"title\": " <<< $data | sed "s/^\ *\"title\": *\"//;s/\"\ *,\?\ *$//")" 
+tracknums="$(grep "\"track_num\": " <<< $data | sed "s/^\ *\"track_num\": //;s/,.*$//")"
+
+outpath="$artist"/"$album"
+echo "Proceeding to download "$album" by "$artist" in "$outpath"..."
+
+! mkdir -p "$outpath" && echo "Could not in this directory." && exit 1
+
+wget -O "./$artist/$album/cover.jpg" "$cover" || exit 1
+while IFS= read -r track;
+do
+	# Ez da elegantea, baina badabil oleeeeee
+	IFS= read -r link <<< "$links"
+	links=$(tail -n +2 <<< "$links")
+
+	IFS= read -r title <<< "$titles"
+	titles=$(tail -n +2 <<< "$titles")
+
+	! wget $link -O "./$outpath/$(printf "%.2d" "$track")-$title.mp3" \
+	       && echo "There was an error with wget. Exiting ..." >&2 && exit 1
+	# Abesti bakoitzarentzat tag-ak jartzea falta da
+	# Kasu honetan id3 erabiliko dugu tag-ak jartzeko
+	id3 -2 -t "$title" -a "$artist" -l "$album" -n "$track" \
+		"./$outpath/$(printf "%.2d" "$track")-$title.mp3"
+	
+done <<< $tracknums
+
+echo "Done."
+exit 0
+

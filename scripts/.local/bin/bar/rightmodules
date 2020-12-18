@@ -1,0 +1,66 @@
+#!/bin/bash
+# modules for lemonbar
+# TODO: OPTIMIZE THE FUNCTIONS
+
+trap 'Main' 5
+
+background="#2d2d2d"
+
+#get the fifo path
+#fifo=$(bspc subscribe -f)
+
+Format() {
+	echo -e "%{B$background} $1 %{B-}"
+}
+
+#Workspaces() {
+#	desktops=$(bspc query -D --names)
+#	focused=$(bspc query -D --names -d focused)
+#
+#	for desktop in $desktops; do
+#		desktop=$(echo "$desktop") #?
+#		nodes=$(bspc query -N -d $desktop)
+#
+#		if [ ! -z "$nodes" ]; then
+#			desktops=$(echo $desktops | sed "s/$desktop/%{F#ff0000}$desktop%{F-}/")
+#		fi
+#	done
+#
+#	desktops=$(echo $desktops | sed "s/$focused/%{B$background}%{+u}_$focused\_%{-u}%{B-}/")
+#
+#	echo $desktops | sed "s/_/ /g"
+#}
+#
+#Activewin() {
+#	echo " $(xdotool getwindowfocus getwindowname)"
+#}
+
+Dat() {
+	DATE=$(date "+%d/%m/%y")
+	TIME=$(date "+%H:%M:%S")
+	Format "%{A:emacs -f mu4e:}${DATE} ${TIME}%{A}"
+}
+
+Cpu() {
+	usage=$(mpstat | sed '1,3d;s/.* //')
+	free="$(calc 100 - $usage)"
+	Format "$free"
+}
+
+Mem() {
+	echo "%{A:$TERMINAL -e htop:}$(Format "$(memory)")%{A}"
+}
+
+Bat() {
+	Format "$(battery)"
+}
+
+Main() {
+	echo -e "%{r} $(Cpu) $(Mem) $(Bat) $(Dat)"
+}
+
+while true; do
+	Main
+	sleep 5s &
+	wait
+done

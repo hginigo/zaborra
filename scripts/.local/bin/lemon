@@ -1,0 +1,10 @@
+#!/bin/sh
+# script to launch an instance of lemonbar
+path=$HOME/.local/bin/bar
+killall -q lemonbar
+killall -q leftmodules
+killall -q rightmodules
+
+$path/leftmodules | lemonbar -p -g 720x20+0+0 -F "#FFaaaaaa" -B "#FF222222" -u 0 -f "Ubuntu Mono"-12 | $SHELL &
+$path/rightmodules | lemonbar -p -g 720x20+720+0 -F "#FFaaaaaa" -B "#FF222222" -u 0 -f "Ubuntu Mono"-12 | $SHELL
+

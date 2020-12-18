@@ -1,0 +1,3 @@
+#
+# launch uni schedule
+emacs -f hg/visit-uni-agenda

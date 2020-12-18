@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =3
+let g:netrw_dirhist_3='/home/hugo/zaborra/.git'
+let g:netrw_dirhist_2='/home/hugo/.config/bspwm'
+let g:netrw_dirhist_1='/home/hugo/docs/uni/kg/KG/.git'
+let g:netrw_dirhist_0='/home/hugo/docs/uni/kea/lab04/lab04'
+let g:netrw_dirhist_9='/home/hugo/docs/uni/kea/lab04'
+let g:netrw_dirhist_8='/home/hugo/docs/uni/kea/lab03/lab03'
+let g:netrw_dirhist_7='/home/hugo/docs/uni/kea/lab03'
+let g:netrw_dirhist_6='/home/hugo/docs/uni/kea/lab04/lab04/Three-color-maps'
+let g:netrw_dirhist_5='/home/hugo/docs/uni/kea/lab04/lab04'
+let g:netrw_dirhist_4='/home/hugo/docs/uni/kea/lab04'

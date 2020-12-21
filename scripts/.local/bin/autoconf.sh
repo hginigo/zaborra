@@ -1,7 +1,7 @@
 #!/bin/sh
 # Script to quickly configure my setup for Debian based distros
 # This script is intended to be used in a Debian distro, it is
-# only been tested on Debian testing, and may not work propely
+# only been tested on 'Debian testing', and may not work properly
 # on other distributions.
 # TODO: install sudo automatically lmao
 [ -z sudo ] && echo "Do you have sudo installed?\nExiting..." && exit 1
@@ -46,6 +46,7 @@ sudo apt-get install\
 	neovim\
 	emacs\
 	git\
+        stow\
 	isync\
 	mu4e\
 	openssl\

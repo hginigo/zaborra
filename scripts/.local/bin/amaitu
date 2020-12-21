@@ -2,6 +2,5 @@
 # instructions to properly logout 
 # from the current session (bspwm)
 
-killall -q lemon
-bspc quit
+killall -q xinit
 

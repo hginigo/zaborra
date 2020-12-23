@@ -12,8 +12,8 @@ setxkbmap -model thinkpad -layout es &
 #xrdb $HOME/.Xresources &
 
 # ~/.fehbg &
-# dwmblocks &
 # sxhkd &
+dwmblocks &
 exec dwm
 #/usr/bin/emacs --daemon &
 

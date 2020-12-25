@@ -73,11 +73,11 @@ sed -i 's/^deb.*main$/& contrib non-free/' /etc/apt/sources.list
 
 # Add the wheel group systemwide
 sed -i '/^\# auth *required *pam_wheel.so$/s/^..//' /etc/pam.d/su
-addgroup --system wheel
+sudo addgroup --system wheel
 
 # Add user to the following groups
-adduser "$user" sudo
-adduser "$user" wheel
+sudo adduser "$user" sudo
+sudo adduser "$user" wheel
 
 # Install some basic programs from apt
 apt-get update >/dev/null 2>&1
@@ -136,6 +136,7 @@ GitInst "https://git.suckless.org/dmenu"
 GitInst "https://git.suckless.org/st"
 GitInst "https://github.com/dylanaraps/pfetch.git"
 # GitInst "https://github.com/hginigo/dwm" "custom"
+GitInst "https://git.suckless.org/dwm"
 # GitInst "https://github.com/hginigo/dwmblocks" "custom"
 SetupDotfiles "$dotfiles"
 

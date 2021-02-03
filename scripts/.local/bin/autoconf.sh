@@ -30,11 +30,12 @@ GitInst () {
     gitbranch=$([ "$2" ] && echo "$2")
     printf "Installing %s" "$gitname"
     git clone "$1" "$gitdir" >/dev/null 2>&1
-    cd "$gitdir" || { Warning "Could not clone $gitname."; return 1; }
+    chown -R "$user":"$user" "$gitdir" || Warning
+    cd "$gitdir" || { Warning ". Could not clone $gitname."; return 1; }
     [ -n "$gitbranch" ] && (git checkout "$gitbranch" >/dev/null 2>&1\
-        || Warning "Could not change to branch $gitbranch. Trying to install from master.")
+        || Warning ". Could not change to branch $gitbranch. Trying to install from master.")
     { make clean >/dev/null 2>&1 ; make install >/dev/null 2>&1; }\
-        || Warning "Could not install $gitname"\
+        || Warning ". Could not install $gitname"\
         && printf " done.\n"
     return 0
 }
@@ -47,13 +48,14 @@ SetupDotfiles () {
     git clone "$1" "$gitdir" >/dev/null 2>&1 
     [ -f "$home/.bashrc" ] && rm "$home/.bashrc"
     [ -f "$home/.profile" ] && rm "$home/.profile"
+    chown -R "$user":"$user" "$gitdir" || Error
     cd "$gitdir" || Error
     [ -n "$gitbranch" ] && (git checkout "$gitbranch" >/dev/null 2>&1\
-        || Warning "Could not change to branch $gitbranch. Trying to install from master.")
+        || Warning ". Could not change to branch $gitbranch. Trying to install from master.")
     [ -f "$gitdir/README.md" ] && rm "$gitdir/README.md"
     [ "$(command -v stow)" ] \
-        && stow -v -t "$home" *\
-        || Warning "Could not set up dotfiles $gitname"; return 1
+        && sudo -u "$user" stow -v -t "$home" *\
+        || Warning ". Could not set up dotfiles $gitname"; return 1
     printf " done.\n"
 }
 
@@ -79,9 +81,11 @@ sudo adduser "$user" sudo
 sudo adduser "$user" wheel
 
 # Install some basic programs from apt
-printf "Updating apt sources"
+echo "Updating apt sources"
 apt-get update >/dev/null 2>&1
 echo "Done."
+
+echo "Installing apt packages"
 apt-get install -y \
 	build-essential\
 	firmware-iwlwifi\
@@ -126,7 +130,9 @@ apt-get install -y \
 	info\
 	htop\
         libxinerama-dev\
+        libxft-dev
 
+echo "Done."
 # Update fonts list
 fc-cache
 
@@ -138,6 +144,7 @@ GitInst "https://github.com/dylanaraps/pfetch.git"
 GitInst "https://git.suckless.org/dwm"
 # GitInst "https://github.com/hginigo/dwmblocks" "custom"
 SetupDotfiles "$dotfiles"
+[ -d "$home/.local" ] && chown -R "$user":"$user" "$home/.local"
 
 # Enable NetworkManager module for systemd
 sudo systemctl enable NetworkManager

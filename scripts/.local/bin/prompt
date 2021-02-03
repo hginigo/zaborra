@@ -5,4 +5,9 @@
 # For example:
 # `./prompt "Do you want to shutdown?" "shutdown -h now"`
 
-[ "$(printf "Bai\\nEz" | dmenu -i -p "$1" -nb darkred -sb red -sf white -nf gray )" = "Bai" ] && $2
+nb="#9D0006"
+sb="#CC241D"
+sf="#F9F5D7"
+nf="#928374"
+
+[ "$(printf "Bai\\nEz" | dmenu -i -p "$1" -fn monospace:size=13 -nb "$nb" -sb "$sb" -sf "$sf" -nf "$nf" )" = "Bai" ] && $2

@@ -1,9 +1,11 @@
 !! Set default font
 !!*.font: Mononoki:size=14
-*.font: Ubuntu Mono:size=14
+!!*.font: Ubuntu Mono:size=14
+!!*.font: Fantasque Sans Mono:size=14
+*.font: monospace:size=14
 
-!! gruvbox: */
-*.color0:   #1d2021
+!! gruvbox dark:
+*.color0:   #282828
 *.color1:   #cc241d
 *.color2:   #98971a
 *.color3:   #d79921
@@ -22,6 +24,23 @@
 *.color256: #1d2021
 *.color257: #ebdbb2
 
+!! black: */
+/* *.color0:   #2d2e2d */
+/* *.color8:   #4a4845 */
+/* *.color1:   #a36666 */
+/* *.color9:   #cc6666 */
+/* *.color2:   #90a57d */
+/* *.color10:  #acb36d */
+/* *.color3:   #d7ad87 */
+/* *.color11:  #f0c674 */
+/* *.color4:   #59829c */
+/* *.color12:  #81a2be */
+/* *.color5:   #c79ec4 */
+/* *.color13:  #b294bb */
+/* *.color6:   #80c2a2 */
+/* *.color14:  #a3dad3 */
+/* *.color7:   #d0d0d0 */
+/* *.color15:  #efefef */
 /* !! solarized: */
 /* *.color0:   #002b36 */
 /* *.color1:   #dc322f */

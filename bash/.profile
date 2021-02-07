@@ -20,13 +20,17 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 ## EXPORTS
+# export for alacritty
+# export LIBGL_ALWAYS_SOFTWARE=1
 # export cargo for rust 
 export PATH="$HOME/.cargo/bin:$PATH"
+
 # export julia path
-export PATH="$PATH:$HOME/builds/julia-1.5.2/bin"
+# export PATH="$PATH:$HOME/builds/julia-1.5.2/bin"
+
 # export pyenv for managing multiple python versions
-export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PYENV_ROOT="$XDG_DATA_HOME/pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
@@ -37,7 +41,7 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # startx automatically
-if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
-	exec startx
-fi
+# if [ -z "$DISPLAY" ] && [ "$(tty)" = /dev/tty1 ]; then
+# 	exec startx
+# fi
 

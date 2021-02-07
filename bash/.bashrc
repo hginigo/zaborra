@@ -55,6 +55,7 @@ ex()
 ## ALIASES
 
 # cd
+alias alacritty='LIBGL_ALWAYS_SOFTWARE=1 alacritty'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias uni='cd ~/docs/uni/'
@@ -85,7 +86,7 @@ alias egrep='egrep --color=auto'
 #alias vim='nvim'
 
 # pyenv init
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
 # eval "$(pyenv virtualenv-init -)"
 
 ## NEOFETCH

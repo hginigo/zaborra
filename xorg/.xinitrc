@@ -16,5 +16,6 @@ setxkbmap -model thinkpad -layout es &
 # dwmblocks &
 # exec dwm
 #/usr/bin/emacs --daemon &
+exec spectrwm
 
 # exec bspwm

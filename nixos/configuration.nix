@@ -94,19 +94,7 @@
     imagemagick
 
     ## Graphics
-    (dmenu.overrideAttrs (oa: rec {
-      patches = [
-        (fetchpatch {
-          url = "http://tools.suckless.org/dmenu/patches/border/dmenu-border-4.9.diff";
-          sha256 = "09j9z2mx16wii3xz1cfmin42ms7ci3dig64c8sgvv7yd9nc0nv1b";
-        })
-        (fetchpatch {
-          url = "http://tools.suckless.org/dmenu/patches/center/dmenu-center-20200111-8cd37e1.diff";
-          sha256 = "0x7jc1m0138p7vfa955jmfhhyc317y0wbl8cxasr6cfpq8nq1qsg";
-        })
-      ];
-    }))
-
+    dmenu
     arandr
     scrot
     feh
@@ -131,8 +119,9 @@
     # fantasque-sans-mono
     # font-awesome
   ];
+
   fonts = {
-  enableDefaultFonts = true;
+    enableDefaultFonts = true;
     fontconfig = {
       defaultFonts = {
         serif = [ "Ubuntu" ];
@@ -152,6 +141,19 @@
       xterm.enable = false;
       xfce.enable = true;
     };
+  };
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+  hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are

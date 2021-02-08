@@ -55,7 +55,7 @@ ex()
 ## ALIASES
 
 # cd
-alias alacritty='LIBGL_ALWAYS_SOFTWARE=1 alacritty'
+# alias alacritty='LIBGL_ALWAYS_SOFTWARE=1 alacritty'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias uni='cd ~/docs/uni/'
